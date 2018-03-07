@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a detailed example demonstrating the usage of scriptedforms.
+This is a detailed example demonstrating the usage of scriptedforms. 
 
 This file format is based upon markdown. There are however a few
 extra custom html elements. The custom html elements come in two
