@@ -1,7 +1,3 @@
 #!/bin/bash
-jupyter serverextension enable --py scriptedforms
-
-echo "import os" >> ~/.jupyter/jupyter_notebook_config.py
-echo "os.environ['JUPYTER_CONFIG_DIR'] = '/home/jovyan/jupyter-config'" >> ~/.jupyter/jupyter_notebook_config.py
-echo "c.Spawner.env_keep.append('JUPYTER_CONFIG_DIR')" >> ~/.jupyter/jupyter_notebook_config.py
+jupyter serverextension enable --config=/srv/venv/etc/jupyter/jupyter_notebook_config.json --py scriptedforms
 echo "c.NotebookApp.default_url = '/scriptedforms/detailed.md'" >> ~/.jupyter/jupyter_notebook_config.py
