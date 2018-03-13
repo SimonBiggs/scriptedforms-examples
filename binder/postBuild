@@ -1,3 +1,3 @@
 #!/bin/bash
 jupyter serverextension enable --sys-prefix --py scriptedforms
-echo "c.NotebookApp.default_url = '/scriptedforms/detailed.md'" >> /srv/venv/etc/jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.default_url = '/scriptedforms/plotting-example.md'" >> /srv/venv/etc/jupyter/jupyter_notebook_config.py
