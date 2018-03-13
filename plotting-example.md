@@ -47,4 +47,4 @@ plt.ylabel(r'$sin(\omega \times t)$');
 
 To see an example with more of the features of ScriptedForms displayed see:
 
-> [detailed.md](detailed.md)
+> [detailed-example.md](detailed-example.md)
