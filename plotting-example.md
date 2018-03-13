@@ -8,6 +8,8 @@ produce utilities like the following:
 <section-start>
 
 ```python
+plt.rc('font', size=15)
+
 t = np.linspace(-2*np.pi, 2*np.pi, 500)
 omega = np.ones(2)
 ```
