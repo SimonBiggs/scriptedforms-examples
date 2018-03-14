@@ -6,7 +6,7 @@ Open the plain text form file in a new window using the following link:
 
 > [Edit this form](../../lab/plotting-example.md)
 
-With this window open, and the edit window open side by side you can see the effects of changes on the interface
+With this window open, and the edit window open side by side you can see the effects of changes on the interface.
 
 ## Example slider use case
 
