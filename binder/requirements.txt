@@ -1,1 +1,1 @@
-scriptedforms==0.9.2
+scriptedforms==0.9.3.dev4
