@@ -6,14 +6,13 @@ This is a ScriptedForm. It allows you to easily make printable user interfaces t
 
 The Python goodie we will be focusing on in this form is PyLinac.
 
-## Select a Dicom zip file
+## Select a DICOM zip file
 
 To begin, select one of the zip files within the `data` directory. By default there is only one zip file in there containing a Cone Beam CT of a CatPhan. You can of course reuse this form and drop other files within the data directory as you please.
 
 <variable-dropdown items="zip_filepaths" label="Select the conebeam zip file">
   selected_zip_file
 </variable-dropdown>
-
 
 <section-button conditional="selected_zip_file" value="Load DICOM zip file">
 
@@ -24,12 +23,17 @@ with warnings.catch_warnings():
     cbct = CatPhan504.from_zip(selected_zip_file)
 
 number_of_slices = len(cbct.dicom_stack)
+smallest_value = np.min([np.min(dcm.array) for dcm in cbct.dicom_stack])
+largest_value = np.max([np.max(dcm.array) for dcm in cbct.dicom_stack])
+
 display(Markdown('Successfully loaded `{}`'.format(selected_zip_file)))
 ```
 
 </section-button>
 
 ## Peruse Slices
+
+Once you have loaded up a DICOM data set you may peruse the slices using the following slider.
 
 <section-live>
 
@@ -38,24 +42,46 @@ display(Markdown('Successfully loaded `{}`'.format(selected_zip_file)))
 </variable-slider>
 
 ```python
-plt.imshow(cbct.dicom_stack[chosen_slice - 1]);
+current_image = cbct.dicom_stack[chosen_slice - 1]
+plt.imshow(current_image, vmin=smallest_value, vmax=largest_value);
 ```
 
 </section-live>
 
+## Run Analysis
 
+Once you have loaded up a DICOM data set you may analyse the CatPhan using PyLinac.
 
+<section-button conditional="cbct is not None" value="Run Analysis">
 
+```python
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    cbct.analyze()
+    print(cbct.results())
 
+    sub_images = ['hu', 'un', 'sp', 'lc', 'mtf', 'lin', 'prof']
+    for sub_image in sub_images:
+        cbct.plot_analyzed_subimage(sub_image)
+```
 
+</section-button>
 
+## Conclusion
 
-<section-start onLoad>
+ScriptedForms can bring Python tools such as PyLinac into our every day job with little friction.
+
+For documentation on ScriptedForms see <https://scriptedforms.com.au>. For documentation on PyLinac see <https://pylinac.readthedocs.io>.
+
+To facilitate transfer of DICOM files from the Linac or CT to the ScriptedForms server I recommend using [Orthanc](https://www.orthanc-server.com/).
+
+<section-start>
 
 ```python
 from glob import glob
 import warnings
 
+import numpy as np
 import matplotlib.pyplot as plt
 
 from IPython.display import display, Markdown
@@ -66,7 +92,8 @@ from pylinac import CatPhan504
 zip_search_string = 'data/*.zip'
 selected_zip_file = None
 number_of_slices = 0
-chosen_slice = 0
+chosen_slice = 1
+cbct = None
 ```
 
 </section-start>
