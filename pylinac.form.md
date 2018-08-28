@@ -6,7 +6,7 @@ This is a ScriptedForm. It allows you to easily make printable user interfaces t
 
 ScriptedForms are created with a plain text file. Any editing of that plain text
 file will automatically update the displayed form. The plain text file for this
-form is found at [this link](../../edit/pylinac.form.md). Open that link up in another tab, edit some of the file contents and see the form update.
+form is found at [this link](../../edit/pylinac.form.md). Open that link up in another tab, edit some of the file contents, save the result by pressing `Ctrl + S`, and then see the form update.
 
 The Python goodie we will be focusing on in this form is PyLinac.
 
