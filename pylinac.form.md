@@ -4,6 +4,10 @@
 
 This is a ScriptedForm. It allows you to easily make printable user interfaces that can be hosted on your intranet. ScriptedForms are powered by Python and all the goodies that come with that.
 
+ScriptedForms are created with a plain text file. Any editing of that plain text
+file will automatically update the displayed form. The plain text file for this
+form is found at [this link](../../edit/pylinac.form.md). Open that link up in another tab, edit some of the file contents and see the form update.
+
 The Python goodie we will be focusing on in this form is PyLinac.
 
 ## Select a DICOM zip file
