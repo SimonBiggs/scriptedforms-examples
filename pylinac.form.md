@@ -47,6 +47,7 @@ Once you have loaded up a DICOM data set you may peruse the slices using the fol
 
 ```python
 current_image = cbct.dicom_stack[chosen_slice - 1]
+plt.figure(figsize=(11,11))
 plt.imshow(current_image, vmin=smallest_value, vmax=largest_value);
 ```
 
