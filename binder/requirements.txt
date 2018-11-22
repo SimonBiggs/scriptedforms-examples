@@ -1,2 +1,2 @@
-scriptedforms==0.10.0.dev3
+scriptedforms==0.10.0
 pylinac
